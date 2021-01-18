@@ -1,5 +1,12 @@
 # GroceryManagementSystem
 
+This is the grocery management system app that is being developed to help the shopkeepers to maintain and have a record of the goods stock of their shop.
+This app provide varity of feature to shopkeeprs to track their goods stock like staff login, checking and updating goods stock. Whenever any goods will be sold,the partiular item will automatically updating in the application. This application also provides the goods billing featur.
+
+This is only the frontend application which is being developed on Angular2+ technology. Further, this app will be connected to the backend technology(Spring Boot).
+
+As of now, only frontend parto of loging feature is developed and rest of the application is in development mode.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.3.
 
 ## Development server
