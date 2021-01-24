@@ -3,12 +3,20 @@
 <form #loginform="ngForm" (ngSubmit)="loginUser()">
   <div class="container col-lg-6 col-md-4 col-sm-1" style="height:560px;width: 1000px;  background-image:url('https://www.yournilgiris.com/images/landing-bg-mob.png');">
   <div class="form-group">
+    <small class="text-danger"><strong>{{msg}}</strong></small>
+    <br>
     <label for="email"><h5>Email address:</h5></label>
-    <input type="email" class="form-control" placeholder="Enter email" name="email" [(ngModel)]="user.emailId">
+    <input type="email" class="form-control" placeholder="Enter email" name="email" [(ngModel)]="user.emailId" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" #email="ngModel" [class.is-invalid]="email.invalid && email.touched"> 
+    <!-- <small class="text-danger" [class.d-none]="email.untouched">Email Id is required</small> -->
+    <div *ngIf="email.errors && (email.invalid && email.touched)">
+      <small class="text-danger" *ngIf="email.errors.required">Eamil address is required</small>
+      <small class="text-danger" *ngIf="email.errors.pattern">Invalid Email address</small>
+    </div>
   </div>
   <div class="form-group">
     <label for="pwd"><h5>Password:</h5></label>
-    <input type="password" class="form-control" placeholder="Enter password" name="password" [(ngModel)]="user.password">
+    <input type="password" class="form-control" placeholder="Enter password" name="password" pattern="^(?!\s*$).+" [(ngModel)]="user.password" required #password="ngModel" [class.is-invalid]="password.touched && password.invalid">
+    <small class="text-danger" [class.d-none]="password.untouched || password.valid">Password is required</small>
   </div>
   <div class="form-group form-check">
     <label class="form-check-label">
@@ -16,6 +24,8 @@
     </label>
   </div>
   <!-- <a routerLink="/home"><button type="submit" class="btn btn-primary">Login</button></a> -->
-  <button type="submit" class="btn btn-primary">Login</button>
-  </div>
+  <button [disabled]="loginform.form.invalid" type="submit" class="btn btn-primary">Login</button>
+  <br>
+  <small class=""><strong>New user ? <a routerLink="/registration">Register here</a></strong></small>
+ </div>
 </form>

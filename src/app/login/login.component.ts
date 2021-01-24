@@ -11,6 +11,7 @@ import { User } from '../user/user';
 })
 export class LoginComponent implements OnInit {
   user= new User();
+  msg='';
   constructor(private _service:LoginService,private router:Router) { }
 
   ngOnInit() {
@@ -19,10 +20,13 @@ export class LoginComponent implements OnInit {
   loginUser(){
     this._service.loginUserFromRemote(this.user).subscribe(
       data=>{
-        console.log("response received")
+        console.log("response received");
         this.router.navigateByUrl('/home');
       },
-      error=>console.log("exception occured")
+      error=>{
+        console.log("exception occured");
+        this.msg="Bad credential,Please enter valid email address and password!!!"
+    }
       
     )
   }
