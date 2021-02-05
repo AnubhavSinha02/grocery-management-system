@@ -1,7 +1,8 @@
-<div class="container nav justify-content-center bg-info text-light"><h1>Grocery Management System</h1></div>
-<br>
-<form #loginform="ngForm" (ngSubmit)="loginUser()">
-  <div class="container col-lg-6 col-md-4 col-sm-1" style="height:560px;width: 1000px;  background-image:url('https://www.yournilgiris.com/images/landing-bg-mob.png');">
+<div class="container nav justify-content-center bg-info text-light" ><h1>Grocery Management System</h1></div>
+<div class="col-md-8 offset-md-2"style="height:600px;width: 1000px;  background-image:url('https://images.unsplash.com/photo-1578916171728-46686eac8d58?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');">
+  <br><br><br><br>
+  <form #loginform="ngForm" (ngSubmit)="loginUser()">
+  <div class="container col-lg-6 col-md-4 col-sm-1" style="height: 322px; width: 1000px;background-image: url('https://cdn.pixabay.com/photo/2017/04/05/04/44/background-2203989_960_720.jpg');" >
   <div class="form-group">
     <small class="text-danger"><strong>{{msg}}</strong></small>
     <br>
@@ -29,3 +30,4 @@
   <small class=""><strong>New user ? <a routerLink="/registration">Register here</a></strong></small>
  </div>
 </form>
+</div>
